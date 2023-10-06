@@ -1,0 +1,65 @@
+application:
+  version: 0.1
+server:
+  port: 8080
+logging:
+  file:
+    path: D:\learningSpringBoot\Project 1\employees\employees\src\main\resources\application.log
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: "dev"
+  application:
+    name: Employees management system
+  datasource:
+    password: E15@root
+    url: jdbc:mysql://localhost:3306/employees_development
+    username: root
+  http:
+    converters:
+      preferred-json-mapper: jackson
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: "pro"
+  application:
+    name: Employees management system
+  datasource:
+    password: E15@root
+    url: jdbc:mysql://localhost:3306/employees_production
+    username: root
+  http:
+    converters:
+      preferred-json-mapper: jackson
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: "qa"
+  application:
+    name: Employees management system
+  datasource:
+    password: E15@root
+    url: jdbc:mysql://localhost:3306/employees_QA
+    username: root
+  http:
+    converters:
+      preferred-json-mapper: jackson
+  jpa:
+    hibernate:
+      ddl-auto: update
+
