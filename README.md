@@ -1,9 +1,9 @@
 # Employees-Spring-boot
 Employees management project
-In this project, we intend to create backend for a basic employee management system using spring boot and MySQL.
+In this project, we intend to create a basic employee management system using spring boot, MySQL and Thymeleaf templates.
 The project using Spring boot 3 and Java 17
 The development steps are as follow:
-1.	Create database on My local MySQL.
+1.	Create database employees on My local MySQL.
 2.	Create spring-boot project using spring initializer with the following dependencies: Spring web, Spring data JPA, validation, MySQL driver, Lombok, live reload and Thymeleaf
 3.	Create employee entity (id, name, department, email, telephone, job-title, salary, created_at, updated_at). The Id should be generated automatically by the db, validation should be taken as follow:
   - name not blank and its size between 2 and 50 characters
