@@ -28,7 +28,7 @@ The development steps are as follow:
 6.	Return the proper HTTP status code (i.e. 200 for GET and PUT, 201 for POST and 204 for Delete)
 7.	Use three different profiles: dev, qa and prod. Use different database for each profile and make the dev is the default and active profile
 
-To run the application (using terminal):
+To run the application (using terminal) with development profile:
 1. mvn clean install
 2. cd .\target\
 3. java -jar .\employees-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev
