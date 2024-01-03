@@ -1,8 +1,31 @@
 # Employees-Spring-boot
-Employees management project
+Employees management project using Spring Boot
+
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Running the Application](#running-the-application)
+- [Project Description](#project-description)
+
+## Project Overview
+
 In this project, we intend to create a basic employee management system using spring boot, MySQL and Thymeleaf templates.
+## Getting Started
+
+### Prerequisites
 The project using Spring boot 3 and Java 17
-The development steps are as follow:
+
+### Running the application
+To run the application (using terminal) with development profile:
+
+    mvn clean install 
+    cd .\target\
+    java -jar .\employees-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev
+
+## Project Description
+The development steps are as follows:
 1.	Create database employees on My local MySQL.
 2.	Create spring-boot project using spring initializer with the following dependencies: Spring web, Spring data JPA, validation, MySQL driver, Lombok, live reload and Thymeleaf
 3.	Create employee entity (id, name, department, email, telephone, job-title, salary, created_at, updated_at). The Id should be generated automatically by the db, validation should be taken as follow:
@@ -28,9 +51,5 @@ The development steps are as follow:
 6.	Return the proper HTTP status code (i.e. 200 for GET and PUT, 201 for POST and 204 for Delete)
 7.	Use three different profiles: dev, qa and prod. Use different database for each profile and make the dev is the default and active profile
 
-To run the application (using terminal):
-1. mvn clean install
-2. cd .\target\
-3. java -jar .\employees-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev
 
 
