@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.learningspringboot.samah.employees.EmployeesApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.329 s - in com.learningspringboot.samah.employees.EmployeesApplicationTests

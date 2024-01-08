@@ -9,12 +9,15 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.Comparator;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
 
     @Autowired
     private EmployeeRepository empRepo;
+    
     @Override
     public List<Employee> getAllEmployees(int pageNumber, int pageSize) {
         Pageable pageable = PageRequest.of(pageNumber, pageSize);
@@ -73,6 +76,59 @@ public class EmployeeServiceImpl implements EmployeeService{
     @Override
     public List<Employee> getEmployeesByJobTitle(String jobTitle) {
         return empRepo.findByJobTitle(jobTitle);
+    }
+    public double calculateTotalSalaryForAllEmployees() {
+        List<Employee> allEmployees = empRepo.findAll();
+        return allEmployees.stream()
+                .mapToDouble(Employee::getSalary)
+                .sum();
+    }
+
+    public double calculateTotalSalaryForDepartment(String department) {
+        List<Employee> employeesInDepartment = empRepo.findByDepartment(department);
+        return employeesInDepartment.stream()
+                .mapToDouble(Employee::getSalary)
+                .sum();
+    }
+
+    public double calculateAverageSalaryForAllEmployees() {
+        List<Employee> allEmployees = empRepo.findAll();
+        return allEmployees.stream()
+                .mapToDouble(Employee::getSalary)
+                .average()
+                .orElse(0.0);
+    }
+
+    public List<String> getEmployeesAboveSalaryThreshold(double salaryThreshold) {
+        List<Employee> employeesAboveThreshold = empRepo.findAll().stream()
+                .filter(employee -> employee.getSalary() > salaryThreshold)
+                .collect(Collectors.toList());
+
+        return employeesAboveThreshold.stream()
+                .map(Employee::getName)
+                .collect(Collectors.toList());
+    }
+
+    public Employee getEmployeeWithHighestSalary() {
+        List<Employee> allEmployees = empRepo.findAll();
+        Optional<Employee> employeeWithMaxSalary = allEmployees.stream()
+                .max(Comparator.comparing(Employee::getSalary));
+        return employeeWithMaxSalary.orElse(null);
+    }
+
+    public Employee getEmployeeWithLowestSalary() {
+        List<Employee> allEmployees = empRepo.findAll();
+        Optional<Employee> employeeWithMinSalary = allEmployees.stream()
+                .min(Comparator.comparing(Employee::getSalary));
+        return employeeWithMinSalary.orElse(null);
+    }
+
+    public double getAverageSalaryByDepartment(String department) {
+        List<Employee> employeesInDepartment = empRepo.findByDepartment(department);
+        return employeesInDepartment.stream()
+                .mapToDouble(Employee::getSalary)
+                .average()
+                .orElse(0.0);
     }
 
 

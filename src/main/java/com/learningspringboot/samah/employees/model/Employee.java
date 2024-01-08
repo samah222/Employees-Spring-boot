@@ -14,6 +14,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 @Builder
+
 public class Employee {
 
     @Id
