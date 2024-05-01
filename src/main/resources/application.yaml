@@ -1,10 +1,10 @@
 application:
   version: 0.1
 server:
-  port: 8080
+  port: 8070
 logging:
   file:
-    path: D:\learningSpringBoot\Project 1\employees\employees\src\main\resources\application.log
+    path: application.log
 
 ---
 
@@ -42,7 +42,7 @@ spring:
       preferred-json-mapper: jackson
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
 
 ---
 
@@ -61,5 +61,4 @@ spring:
       preferred-json-mapper: jackson
   jpa:
     hibernate:
-      ddl-auto: update
-
+      ddl-auto: create-drop

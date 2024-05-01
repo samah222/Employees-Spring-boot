@@ -1,7 +1,7 @@
 application:
   version: 0.1
 server:
-  port: 8080
+  port: 8070
 logging:
   file:
     path: D:\learningSpringBoot\Project 1\employees\employees\src\main\resources\application.log
@@ -62,4 +62,3 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-
